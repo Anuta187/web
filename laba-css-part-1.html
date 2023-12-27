@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Block Header Example</title>
+    <style>
+    div.content{
+    margin-bottom: 5%;
+    
+}
+div.footer{
+    margin-top: 1%;
+    padding: 1%;
+    background-color: #808080;
+    position:relative;
+    width:100%;
+    float:left;
+    height: 1rem;
+}
+div.footer div.person{
+    font-size:1rem;
+    float:left;
+}
+div.footer div.contact{
+    font-size:1rem;
+    text-align: right;
+    padding-right:2%;
+}
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: white;
+            color: white;
+            text-align: center;
+            height: 20vh;
+        }
+
+        .site-name {
+            display: inline-block;
+            width: 40vw;
+            height: 20vh;
+            font-size: 24px;
+            background-color: #686461;
+            float: left;
+            line-height: 20vh; 
+        }
+
+        
+
+        .menu-links {
+            display: block;
+            height: 60px; 
+            background-color: #686461;
+            overflow: hidden; 
+        }
+
+        .block {
+            display: inline-block;
+            height: 57%;
+        }
+
+        .menu-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 20px; 
+            display: inline-block;
+            vertical-align: middle;
+            box-sizing: border-box; 
+        }
+
+        
+        .menu-link:hover {
+            color:#CEAD6D;
+        }
+
+        
+        .block-2 {
+            display: inline-block;
+            width: 100%;
+            height: 200px; 
+            background-image: url(https://i.pinimg.com/564x/16/ba/10/16ba10375a899f0a9c81b48f5e7eab3d.jpg); 
+        }
+
+        
+        .block-6  {
+            display: inline-block;
+            width:33.3%; 
+            height: 400px; 
+            background-image: url(https://www.purina.ru/sites/default/files/styles/nppe_breed_selector_500/public/2020-11/american_wirehair_500%D1%85473_02.png?itok=IWvfsMP_);
+            margin: auto; 
+            background-size: cover; 
+        }
+        .block-7 {
+            display: inline-block;
+            width:33.3%; 
+            height: 400px; 
+            background-image: url(https://www.purina.ru/sites/default/files/styles/nppe_breed_selector_500/public/2020-05/cat_russian_blue.jpg?itok=t5YlzIcl_);
+            margin: auto; 
+            background-size: cover; 
+        }
+        .block-8 {
+            display: inline-block;
+            width:33.3%; 
+            height: 400px; 
+            background-image: url(https://www.purina.ru/sites/default/files/styles/nppe_breed_selector_500/public/2020-05/cat_munchkin.jpg?itok=clofFAUT);
+            margin: auto; 
+            background-size: cover; 
+        }
+
+        
+        .block-3, .block-4, .block-5 {
+            display: inline-block;
+            width: 32%; 
+            height: 40%; 
+            background-color: #B9848C; 
+            margin: 0.66% ;
+            text-align: center; 
+            vertical-align: top; 
+        }
+
+        
+        .block-image {
+            margin: 25px;
+            width: 50px; 
+            height: 50px; 
+            margin-bottom: 10px; 
+        }
+
+        
+        .block-title, .block-text {
+            color: #fff;
+            margin: 0;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="site-name">Породы кошек</div>
+        <div class="block"></div>
+
+
+        <div class="menu-links">
+            <a href="#" class="menu-link">Информация</a>
+            <a href="#" class="menu-link">Наша продукция</a>
+            <a href="#" class="menu-link">Вопросы</a>
+            <a href="#" class="menu-link">Контакты</a>
+        </div>
+    </header>
+
+    
+    <div class="block-2"></div>
+
+    
+    <div class="block-6"></div><!--
+    --><div class="block-7"></div><!--
+    --><div class="block-8"></div>
+
+    
+    <div class="block-3">
+        <img src="https://www.purina.ru/sites/default/files/styles/nppe_breed_selector_500/public/2020-11/american_wirehair_500%D1%85473_02.png?itok=IWvfsMP_" alt="Image" class="block-image">
+        <h3 class="block-title">Американская жесткошерстная кошка</h3>
+        <p class="block-text">О шерсти американской жесткошерстной кошки можно судить по названию породы. Американская жесткошерстная — это кошка крупного размера с грубой и упругой на ощупь шерстью. Короткие и средние волоски на теле этого животного образуют волны или жесткие завитушки.</p>
+    </div><!--
+    --><div class="block-4">
+        <img src="https://www.purina.ru/sites/default/files/styles/nppe_breed_selector_500/public/2020-05/cat_russian_blue.jpg?itok=t5YlzIcl_" alt="Image" class="block-image">
+        <h3 class="block-title">Русская голубая кошка</h3>
+        <p class="block-text">Кошки породы русская голубая бывают среднего или крупного размера. Имеют изящное тело и длинные, стройные ноги. Эта кошка настолько грациозна, что кажется, будто она передвигается на цыпочках. Голова имеет клинообразную форму с выдающейся зоной бакенбард и крупные уши. </p>
+    </div><!--
+    --><div class="block-5">
+        <img src="https://www.purina.ru/sites/default/files/styles/nppe_breed_selector_500/public/2020-05/cat_munchkin.jpg?itok=clofFAUT" alt="Image" class="block-image">
+        <h3 class="block-title">Манчкин</h3>
+        <p class="block-text">Манчкин — это порода среднего размера с короткими лапами и длинным позвоночником. В движениях манчкинов можно проследить сходство с перемещениями хорька — эта порода не отличается грацией, присущей более длинноногим кошкам. Манчкины имеют плотное тело с округлой грудной клеткой.</p>
+    </div>
+    <div class="footer">
+            <div class="person">©Олейникова А.Е.,Б9121-09-03-04(1), 2023-2024</div>
+            <div class="contact">✉Контакты</div>
+        </div>
+    
+
+</body>
+</html>
