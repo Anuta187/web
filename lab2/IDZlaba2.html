@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="Изменить страницу" onClick="changePage('test')">
+<h3 class="big">Языки программирования</h3>
+<div class="small bold red center">Python</div>
+<div class="big bold">C</div>
+<div><a class="bold small" href="#">Java</a></div>
+<h3 class="bold big">История создания</h3>
+<div class="bold red">
+    <div>Python создан в 1989-1991.</div>
+    <div>C разработан в 1969-1973 годах.</div>
+    <div class="small bold" id="test">Java разработан в 1990-1996 годах.</div>
+    <div class="small">JavaScript разработан в 1996 году.</div>
+    <div class="big">Prolog разработан а 1972 году.</div>
+</div>
+<h3 class="bold small red">Разработчики</h3>
+
+<script>
+    function changePage(tagId) {
+        const element = document.getElementById(tagId);
+        const selector = '.' + Array.from(element.classList).join('.');
+        const elementsToRemove = document.querySelectorAll(selector);// элементы с теми же классами
+        elementsToRemove.forEach(elementToRemove => {
+            if (elementToRemove !== element) {
+                const otherClasses = Array.from(elementToRemove.classList);// Удалить элементы, кроме исходного
+                let removeElement = true;
+                otherClasses.forEach(cls => {
+                    if (!element.classList.contains(cls)) {
+                        removeElement = false;
+                    }
+                });
+                if (removeElement) {
+                    elementToRemove.remove();
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>
