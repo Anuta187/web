@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/128/icon.ico" type="image/x-icon">
+    <title>Топ школ России</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+<font face="calibri">
+    <a href="D:\syte\school.html">Главная</a>
+    <h1>Топ школ России</h1>
+
+    <details>
+        <summary>График</summary>
+
+        <form id="graphForm">
+            <p>
+                Значение по оси X:<br>
+                <label><input type="radio" name="ox" value="city">Города</label><br>
+                <label><input type="radio" name="ox" value="federalSubject">Субъект Федерации</label><br>
+            </p>
+            <p>
+                Результат:<br>
+                <label><input type="checkbox" name="oy" value="minscore">Минимальный балл</label><br>
+                <label><input type="checkbox" name="oy" value="maxscore">Максимальный балл</label><br>
+                <label><input type="checkbox" name="oy" value="minbudgetShare">Минимальная доля бюджетников</label><br>
+                <label><input type="checkbox" name="oy" value="maxbudgetShare">Максимальная доля бюджетников</label><br>
+            </p>
+            <p>
+                <input type="submit" value="Построить">
+            </p>
+        </form>
+    </details>
+
+    <details>
+        <summary>Фильтр</summary>
+        <form id="filter">
+            <p>
+                <label for="schoolName">Название:</label>
+                <input type="text" id="schoolName">
+            </p>
+            <p>
+                <label for="federalSubject">Субъект федерации:</label>
+                <input type="text" id="federalSubject">
+            </p>
+            <p>
+                <label for="city">Город:</label>
+                <input type="text" id="city">
+            </p>
+            <p>
+                <label for="scoreFrom">Балл:</label>
+                от <input type="number" id="scoreFrom" step="any">
+                до <input type="number" id="scoreTo" step="any">
+            </p>
+            <p>
+                <label for="budgetShareFrom">Доля бюджетников:</label>
+                от <input type="number" id="budgetShareFrom" step="any">
+                до <input type="number" id="budgetShareTo" step="any">
+            </p>
+            <input type="submit" value="Найти">
+            <input type="button" value="Очистить фильтры" id="clearFilters">
+        </form>
+    </details>
+
+    <details>
+        <summary>Сортировка</summary>
+        <form id="sort">
+            <p>Первый уровень:
+                <select id="firstLevelField">
+                    <option>Название</option>
+                    <option>Субъект федерации</option>
+                    <option>Город</option>
+                    <option>Балл</option>
+                    <option>Доля бюджетников</option>
+                </select>
+                <select id="firstLevelOrder">
+                    <option>По возрастанию</option>
+                    <option>По убыванию</option>
+                </select>
+            </p>
+            <p>Второй уровень:
+                <select id="secondLevelField">
+                    <option>Название</option>
+                    <option>Субъект федерации</option>
+                    <option>Город</option>
+                    <option>Балл</option>
+                    <option>Доля бюджетников</option>
+                </select>
+                <select id="secondLevelOrder">
+                    <option>По возрастанию</option>
+                    <option>По убыванию</option>
+                </select>
+            </p>
+            <p>Третий уровень:
+                <select id="thirdLevelField">
+                    <option>Название</option>
+                    <option>Субъект федерации</option>
+                    <option>Город</option>
+                    <option>Балл</option>
+                    <option>Доля бюджетников</option>
+                </select>
+                <select id="thirdLevelOrder">
+                    <option>По возрастанию</option>
+                    <option>По убыванию</option>
+                </select>
+            </p>
+            <p>
+                <input type="submit" value="Сортировать">
+            </p>
+        </form>
+    </details>
+
+    <table id='list' border="3" align="left" valign="top"></table>
+
+    <svg></svg>
+    <script src="http://d3js.org/d3.v7.min.js"></script>
+    <script type="text/javascript" src="filter.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+</font>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/128/icon.ico" type="image/x-icon">
+    <title>Топ школ России</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="data.js"></script>
+    <style>
+        svg {
+            display: block;
+            margin: auto;
+            background-color: #f9f9f9;
+        }
+        .axis path,
+        .axis line {
+            fill: none;
+            shape-rendering: crispEdges;
+        }
+    </style>
+</head>
+<body>
+<font face="calibri">
+    <a href="D:\syte\school.html">Главная</a>
+    <h1>Топ школ России</h1>
+
+    <details>
+        <summary>График</summary>
+
+        <form id="graphForm">
+            <p>
+                Значение по оси X:<br>
+                <label><input type="radio" name="ox" value="Город">Города</label><br>
+                <label><input type="radio" name="ox" value="Субъект федерации">Субъект Федерации</label><br>
+            </p>
+            <p>
+                Результат:<br>
+                <label><input type="checkbox" name="oy" value="Балл">Балл</label><br>
+                <label><input type="checkbox" name="oy" value="Доля бюджетников">Доля бюджетников</label><br>
+            </p>
+            <p>
+                <input type="submit" value="Построить">
+            </p>
+        </form>
+    </details>
+
+    <svg width="960" height="500"></svg>
+
+    <script>
+        document.getElementById('graphForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const ox = form.elements['ox'].value;
+            const oy = Array.from(form.elements['oy']).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
+
+            if (!ox || oy.length === 0) {
+                alert('Пожалуйста, выберите значение по оси X и хотя бы одно значение по оси Y.');
+                return;
+            }
+
+            drawHistogram(ox, oy);
+        });
+
+        function drawHistogram(ox, oy) {
+            const svg = d3.select("svg");
+            svg.selectAll("*").remove(); // Очистить предыдущую диаграмму
+
+            const margin = {top: 20, right: 20, bottom: 100, left: 70};
+            const width = +svg.attr("width") - margin.left - margin.right;
+            const height = +svg.attr("height") - margin.top - margin.bottom;
+            const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+
+            const x = d3.scaleBand() //рисуем ось ох
+                .domain(school.map(d => d[ox]))
+                .range([0, width])
+                .padding(0.1);
+
+            const y = d3.scaleLinear() //рисуем ось оу
+                .domain([0, d3.max(school, d => d3.max(oy, key => d[key]))])
+                .nice()
+                .range([height, 0]);
+
+            g.append("g")
+                .attr("class", "axis axis--x")
+                .attr("transform", `translate(0,${height})`)
+                .call(d3.axisBottom(x))
+                .selectAll("text")
+                .attr("transform", "rotate(-45)")
+                .style("text-anchor", "end");
+
+            g.append("g")
+                .attr("class", "axis axis--y")
+                .call(d3.axisLeft(y));
+
+            oy.forEach((key, index) => { //построение столбцов гистограммы
+                g.selectAll(`.bar-${key}`)
+                    .data(school)
+                    .enter().append("rect")
+                    .attr("class", `bar bar-${key}`) //стилизация
+                    .attr("x", d => x(d[ox])) //вычисляем позицию по оси X на основе шкалы x и значения ox
+                    .attr("y", d => y(d[key]))
+                    .attr("width", x.bandwidth() / oy.length)
+                    .attr("height", d => height - y(d[key])) //вычисляем высоту
+                    .attr("fill", d3.schemeCategory10[index])
+                    .attr("transform", (d, i) => `translate(${x.bandwidth() / oy.length * index}, 0)`); //сдвигаем столбцы, чтобы не накладывались
+            });
+        }
+    </script>
+</font>
+</body>
+</html>
