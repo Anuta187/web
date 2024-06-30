@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Топ браузеров</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <!-- Подключаем D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+<h2>Топ браузеров</h2>
+<table id="browser-table">
+    <thead>
+    <tr>
+        <th>Браузеры</th>
+        <th>Доля рынка (%)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Google Chrome</td>
+        <td>63.33</td>
+    </tr>
+    <tr>
+        <td>Apple Safari</td>
+        <td>13.13</td>
+    </tr>
+    <tr>
+        <td>Microsoft Edge</td>
+        <td>10.46</td>
+    </tr>
+    <tr>
+        <td>Mozilla Firefox</td>
+        <td>5.96</td>
+    </tr>
+    </tbody>
+</table>
+<button id="add-data-btn">Добавить данные</button>
+
+<script>
+    function changePage(browsers) {
+        const tbody = d3.select("#browser-table tbody");
+
+        const rows = tbody.selectAll("tr.new-row")
+            .data(browsers)
+            .enter()
+            .append("tr")
+            .attr("class", "new-row");
+
+        rows.each(function(d) {
+            d3.select(this).append("td").text(d.title);
+            d3.select(this).append("td").text(d.rate);
+        });
+    }
+
+
+    document.getElementById("add-data-btn").addEventListener("click", function() { // обработчик
+        const newBrowsers = [
+            {"title": "Яндекс. Браузер", "rate": 7.47},
+            {"title": "Firefox", "rate": 2.2}
+        ];
+        changePage(newBrowsers);
+    });
+</script>
+</body>
+</html>
