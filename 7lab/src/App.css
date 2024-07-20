@@ -1,0 +1,120 @@
+.App {
+  text-align: center;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E339A4;
+  padding: 10px;
+}
+
+.head .logo {
+  width: 10%;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+  font-size: 1.5vw;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #CFF76F;
+}
+
+h1 {
+  font-size: 4vw;
+}
+
+.button {
+  border: 0;
+  border-radius: 5px;
+  background: #E339A4;
+  color: #ffffff;
+  padding: 8px 16px;
+  font-size: 2vw;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: #E366B5;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #CFF76F;
+}
+
+.prof {
+  display: flex;
+  flex-direction: column; /* Изменено на column для вертикального расположения */
+  align-items: center;
+  margin: auto;
+  max-width: 80%;
+}
+
+.prof ul {
+  padding: 0;
+  font-size: 1.5vw;
+  list-style: none; /* Убрали маркеры списка */
+}
+
+.prof li {
+  cursor: pointer;
+  list-style: none;
+  margin: 1em 0;
+  transition: background 0.3s ease;
+  padding: 10px;
+  width: 100%; /* Занимает всю ширину контейнера */
+  box-sizing: border-box;
+}
+
+.prof li:hover {
+  background: #E366B5;
+}
+
+#program-section {
+  margin-top: 20px;
+  max-width: 80%;
+  margin: auto;
+}
+
+.program-form {
+  max-width: 60%;
+  margin: auto;
+}
+.text-truncator p {
+  cursor: pointer;
+  margin: 10px 0;
+  transition: color 0.3s ease;
+  font-size: calc(10px + 2vmin);
+}
+
+.text-truncator p:hover {
+  color: #E339A4;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App main {
+  padding: 20px;
+}

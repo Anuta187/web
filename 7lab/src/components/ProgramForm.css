@@ -1,0 +1,31 @@
+.program-form {
+    text-align: center;
+    margin: 20px 0;
+    max-width: 60%;
+    margin: auto;
+  }
+  
+  .program-form ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .program-form li {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .program-form button {
+    background: #4676D7;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: not-allowed;
+    font-weight: bold;
+  }
+  
